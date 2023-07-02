@@ -2,7 +2,8 @@ const mongoose = require('mongoose')
 
 const userSchema = ({
     username: {
-        type:String,
+        type: String,
+        
     },
     password: {
         type:String
