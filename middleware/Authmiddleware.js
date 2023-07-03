@@ -1,12 +1,7 @@
 const jwt = require("jsonwebtoken");
-const express = require('express');
-const app = express();
-
 
 const authenticateToken = (req, res, next) => {
-  const token = req.cookies;
-
-  console.log(token);
+  const token = req.headers.cookie?.split("=")[1];
 
   if (token) {
     jwt.verify(token, process.env.SECRET_KEY, (err, decoded) => {
@@ -15,11 +10,10 @@ const authenticateToken = (req, res, next) => {
       }
       console.log(decoded, "decoded");
       req.user = decoded;
-      res.send(token);
       next();
     });
   } else {
-    res.sendStatus(401);
+    return res.sendStatus(401);
   }
 };
 

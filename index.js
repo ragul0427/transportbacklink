@@ -6,6 +6,8 @@ const consignorRoutes = require('./route/consignorRoutes')
 const userRoutes = require('./route/userRoute')
 const bodyparser = require('body-parser')
 const cookieParser = require('cookie-parser');
+const consigneeRoutes = require("./route/consigneeRoutes")
+const vehicleRoutes=require("./route/vehicleRoutes")
 
 
 
@@ -27,6 +29,8 @@ app.use(cors({
 
 
 app.use('/api/consignor',consignorRoutes, )
+app.use('/api/consignee',consigneeRoutes, )
+app.use('/api/vehicle',vehicleRoutes, )
 app.use('/api/user', userRoutes)
 
 app.get('/', (req, res) => {

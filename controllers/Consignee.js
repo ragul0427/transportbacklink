@@ -1,15 +1,13 @@
-const Consignor = require("../model/Consignor")
-const authMiddleware=require("../middleware/Authmiddleware")
+const Consignee=require("../model/consignee")
 
-const getConsignor = async (req, res) => {
+const getConsignee = async (req, res) => {
     
     try {
-       
-       const { search } = req.query
+        const { search } = req.query
         const regexQuery = { $regex: search, $options: "i" };
         
         if (search !== "") {
-            const result = await Consignor.find({
+            const result = await Consignee.find({
                 $or: [
                     { drivername: regexQuery },
                     { vehicleno: !isNaN(search) ? Number(search) : null },
@@ -18,20 +16,17 @@ const getConsignor = async (req, res) => {
                 ],
             });
         }
-        
     } catch (err) {
         return res.status(200).json({ message: "failed" })
     }
 }
 
 
-const createConsignor = async (req, res) => {
+const createConsignee = async (req, res) => {
     console.log(req.body)
    
     try {
-        await authMiddleware(req, res)
-        console.log(req)
-        const result = await Consignor.create({ ...req.body })
+        const result = await Consignee.create({ ...req.body })
         return res.status(200).send({ message: result})
     } catch (err) {
         return res.status(404).send({ message: "failed" })
@@ -39,22 +34,22 @@ const createConsignor = async (req, res) => {
 }
 
 
-const deleteConsignor=async (req, res) => {
+const deleteConsignee=async (req, res) => {
     try {
         const { id } = req.params;
-        const result = await Consignor.findByIdAndDelete(id)
+        const result = await Consignee.findByIdAndDelete(id)
         return res.status(200).send({message:"successfully deleted"})
     } catch (err) {
         return res.status(404).json({error:"failed"})
    }
 }
 
-const updateConsignor = async (req, res) => {
+const updateConsignee = async (req, res) => {
     console.log(req.body)
     try {
         const { id } = req.params;
         const {name,address,place,phone,contactPerson,gstno,mail,transport}=req.body
-        const result = await Consignor.findByIdAndUpdate(id, { ...req.body })
+        const result = await Consignee.findByIdAndUpdate(id, { ...req.body })
         return res.status(200).send({ message: result})
     } catch (err) {
         return res.status(404).json({error:"failed"})
@@ -66,5 +61,5 @@ const updateConsignor = async (req, res) => {
 
 
 module.exports = {
-    getConsignor,createConsignor,deleteConsignor,updateConsignor
+    getConsignee,createConsignee,deleteConsignee,updateConsignee
 }
