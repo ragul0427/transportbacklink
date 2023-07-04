@@ -9,6 +9,7 @@ const cookieParser = require('cookie-parser');
 const consigneeRoutes = require('./route/consigneeRoutes')
 const vehicleRoutes=require('./route/vehicleRoutes')
 const brokerRoutes=require('./route/brokerRoutes')
+const reportRoutes=require('./route/reportRoutes')
 
 
 app.use(express.json());
@@ -26,7 +27,7 @@ app.use(cors({
 	credentials: true, 
 	
 }));
-
+app.use('/api/report',reportRoutes )
 app.use('/api/broker',brokerRoutes,)
 app.use('/api/consignor',consignorRoutes, )
 app.use('/api/consignee',consigneeRoutes, )
