@@ -1,5 +1,5 @@
 const Vehicle = require("../model/vehicle");
-const authMiddleware = require("../middleware/Authmiddleware");
+// const authMiddleware = require("../middleware/Authmiddleware");
 
 const getVehicle = async (req, res) => {
     try {
@@ -15,7 +15,7 @@ const getVehicle = async (req, res) => {
                   { drivername: regexQuery },
                   { vehicleno: !isNaN(search) ? Number(search) : null },
                   { driverphone: !isNaN(search) ? Number(search) : null },
-                  { address: regexQuery },
+                 
                 ],
             });
             return res.status(200).json({ message: result });

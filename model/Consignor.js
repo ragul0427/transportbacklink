@@ -24,6 +24,9 @@ const consignorSchema = mongoose.Schema({
 	},
 	transport: {
 		type: String
+	},
+	userId: {
+		type:String
 	}
 })
 
