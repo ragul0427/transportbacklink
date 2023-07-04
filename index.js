@@ -6,9 +6,9 @@ const consignorRoutes = require('./route/consignorRoutes')
 const userRoutes = require('./route/userRoute')
 const bodyparser = require('body-parser')
 const cookieParser = require('cookie-parser');
-const consigneeRoutes = require("./route/consigneeRoutes")
-const vehicleRoutes=require("./route/vehicleRoutes")
-
+const consigneeRoutes = require('./route/consigneeRoutes')
+const vehicleRoutes=require('./route/vehicleRoutes')
+const brokerRoutes=require('./route/brokerRoutes')
 
 
 app.use(express.json());
@@ -27,7 +27,7 @@ app.use(cors({
 	
 }));
 
-
+app.use('/api/broker',brokerRoutes,)
 app.use('/api/consignor',consignorRoutes, )
 app.use('/api/consignee',consigneeRoutes, )
 app.use('/api/vehicle',vehicleRoutes, )
