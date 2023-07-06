@@ -30,7 +30,10 @@ const memoSchema = mongoose.Schema({
 	},
 	commission: {
 		type:String
-	}
+	},
+	userId: {
+		type:String
+	},
 })
 
 module.exports = mongoose.model('memo', memoSchema)

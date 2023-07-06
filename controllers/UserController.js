@@ -3,7 +3,6 @@ const jwt = require('jsonwebtoken');
 
 const loginUser = async (req, res) => {
     try {
-        console.log(req.body);
         const { username, password } = req.body;
         const user = await User.findOne({ username });
        
@@ -35,6 +34,7 @@ const loginUser = async (req, res) => {
 const registerUser = async (req, res) => {
     try {
         const { username, password } = req.body;
+        console.log(req.body,"wdjhjijh")
         const user = await User.findOne({ username: username });
 
         if (!user) {
@@ -48,6 +48,7 @@ const registerUser = async (req, res) => {
                     res.cookie('token', token).json({
                         id: result._id,
                         message: 'User registered successfully',
+                        token:token
                     });
                 }
             });

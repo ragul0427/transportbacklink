@@ -28,6 +28,9 @@ const reportSchema = mongoose.Schema({
     },
     lrno: {
         type: String
+    },
+    userId: {
+        type:String
     }
 })
 

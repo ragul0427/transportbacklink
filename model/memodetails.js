@@ -58,6 +58,9 @@ const memodetailsSchema = mongoose.Schema({
     },
     pressmark: {
         type:String
+    },
+    userId: {
+        type:String
     }
 })
 

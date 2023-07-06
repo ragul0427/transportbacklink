@@ -1,10 +1,9 @@
 const Vehicle = require("../model/vehicle");
-// const authMiddleware = require("../middleware/Authmiddleware");
+const authMiddleware = require("../middleware/Authmiddleware");
 
 const getVehicle = async (req, res) => {
     try {
         // authMiddleware(req, res)
-        // console.log(req)
         const { search } = req.query
         const regexQuery = { $regex: search, $options: "i" };
         
@@ -33,11 +32,12 @@ const getVehicle = async (req, res) => {
 
 const createVehicle = async (req, res) => {
     try {
-        await authMiddleware(req, res); // Assuming this middleware handles the authentication
+         // Assuming this middleware handles the authentication
+        await authMiddleware(req, res)
         console.log(req.user.userId, "user")
         req.body.userId=req.user.userId
         const result = await Vehicle.create({ ...req.body });
-        return res.status(201).json({ message: "Vehicle created successfully", data: result });
+        return res.status(201).send({ message: "Vehicle created successfully" });
     } catch (err) {
         console.error(err);
         return res.status(500).json({ error: "Failed to create vehicle" });

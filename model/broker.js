@@ -4,6 +4,9 @@ const brokerSchema = mongoose.Schema({
 
 	name: {
 		type: String
+	},
+	userId: {
+		type: String
 	}
 })
 

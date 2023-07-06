@@ -7,6 +7,9 @@ const userSchema = ({
     },
     password: {
         type:String
+    },
+    userId: {
+        type:String
     }
 })
 
