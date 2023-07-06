@@ -1,16 +1,37 @@
 const Consignor = require("../model/Consignor")
 const authMiddleware=require("../middleware/Authmiddleware")
 
-const getConsignor = async (req, res) => {
-    
-    try { 
-        const result = await Consignor.find();
-        return res.status(200).json({message:result})   
-    } catch (err) {
-        return res.status(200).json({ message: "failed" })
-    }
-}
 
+const getConsignor = async (req, res) => {
+    try {
+        // authMiddleware(req, res)
+        // console.log(req)
+        const { search } = req.query
+        const regexQuery = { $regex: search, $options: "i" };
+        
+        console.log(search,"dekn")
+       
+        if (search !== ""){
+            const result = await Consignor.find({
+                $or: [
+                  { name: regexQuery },
+                  { phone: !isNaN(search) ? Number(search) : null },
+                  { place: regexQuery },
+                 
+                ],
+            });
+            return res.status(200).json({ message: result });
+        } else {
+            const result = await Consignor.find(); 
+            return res.status(200).json({ message: result });
+        }
+        
+    
+    } catch (err) {
+      console.error(err);
+      return res.status(500).json({ error: "Failed to fetch vehicles" });
+    }
+  };
 
 const createConsignor = async (req, res) => {   
     try {
