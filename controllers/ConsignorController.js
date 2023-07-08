@@ -1,17 +1,17 @@
 const Consignor = require("../model/Consignor")
-const authMiddleware=require("../middleware/Authmiddleware")
+const authMiddleware = require("../middleware/Authmiddleware");
 
 
 const getConsignor = async (req, res) => {
     try {
-        // authMiddleware(req, res)
+        authMiddleware(req, res)
         // console.log(req)
         const { search } = req.query
         const regexQuery = { $regex: search, $options: "i" };
         
-        console.log(search,"dekn")
+        console.log(req.user.userId,"dekn")
        
-        if (search !== ""){
+        if (search == ""){
             const result = await Consignor.find({
                 $or: [
                   { name: regexQuery },
@@ -22,7 +22,7 @@ const getConsignor = async (req, res) => {
             });
             return res.status(200).json({ message: result });
         } else {
-            const result = await Consignor.find(); 
+            const result = await Consignor.find({userId:req.user.userId}); 
             return res.status(200).json({ message: result });
         }
         
@@ -35,9 +35,11 @@ const getConsignor = async (req, res) => {
 
 const createConsignor = async (req, res) => {   
     try {
-        // await authMiddleware(req, res)
-        // console.log(req)
+        await authMiddleware(req, res)
+        console.log(req.user.userId, "user")
+        req.body.userId=req.user.userId
         const result = await Consignor.create({ ...req.body })
+        
         return res.status(200).send({ message: result})
     } catch (err) {
         return res.status(404).send({ message: "failed" })

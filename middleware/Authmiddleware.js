@@ -5,13 +5,13 @@ const authenticateToken = (req, res, next) => {
   console.log(token,"edshgvhoih")
 
   if (token) {
-    return jwt.verify(token, process.env.SECRET_KEY, (err, decoded) => {
+     jwt.verify(token, process.env.SECRET_KEY, (err, decoded) => {
       if (err) {
         return res.sendStatus(403);
       }
       console.log(decoded, "decoded");
       req.user = decoded;
-      next();
+     
     });
   } else {
     return res.sendStatus(401);

@@ -3,12 +3,12 @@ const authMiddleware = require("../middleware/Authmiddleware");
 
 const getVehicle = async (req, res) => {
     try {
-        // authMiddleware(req, res)
+        authMiddleware(req, res)
         const { search } = req.query
         const regexQuery = { $regex: search, $options: "i" };
         
        
-        if (search !== ""){
+        if (search == ""){
             const result = await Vehicle.find({
                 $or: [
                   { drivername: regexQuery },
@@ -19,7 +19,7 @@ const getVehicle = async (req, res) => {
             });
             return res.status(200).json({ message: result });
         } else {
-            const result = await Vehicle.find(); 
+            const result = await Vehicle.find({userId:req.user.userId}); 
             return res.status(200).json({ message: result });
         }
         
