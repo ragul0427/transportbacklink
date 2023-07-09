@@ -19,7 +19,7 @@ const memoSchema = mongoose.Schema({
 	driverphone: {
 		type: Number
 	},
-	driverwhatsappnumber: {
+	driverwhatsappno: {
 		type: Number
 	},
 	locationfrom: {

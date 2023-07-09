@@ -39,7 +39,7 @@ const memodetailsSchema = mongoose.Schema({
         type:String
     },
     lorryfoeight: {
-        type:string
+        type:String
     },
     remarks: {
         type: String

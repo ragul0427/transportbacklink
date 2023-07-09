@@ -1,5 +1,5 @@
 const Memo = require("../model/memoentry");
-const authMiddleware = require("../middleware/Authmiddleware");
+//const authMiddleware = require("../middleware/Authmiddleware");
 
 const getMemo = async (req, res) => {
     try {
@@ -10,7 +10,7 @@ const getMemo = async (req, res) => {
         if (search !== ""){
             const result = await Memo.find({
                 $or: [
-                  { drivername: regexQuery },
+                    { gcno: !isNaN(search) ? Number(search) : null },
                   { vehicleno: !isNaN(search) ? Number(search) : null },
                   { driverphone: !isNaN(search) ? Number(search) : null },         
                 ],
@@ -30,14 +30,11 @@ const getMemo = async (req, res) => {
 
 const createMemo = async (req, res) => {
     try {
-        await authMiddleware(req, res); // Assuming this middleware handles the authentication
-        console.log(req.user.userId, "user")
-        req.body.userId=req.user.userId
         const result = await Memo.create({ ...req.body });
         return res.status(201).json({ message: "Memo  created successfully", data: result });
     } catch (err) {
         console.error(err);
-        return res.status(500).json({ error: "Failed to create vehicle" });
+        return res.status(500).json({ error: "Failed to create memo" });
     }
 };
 
@@ -59,7 +56,7 @@ const deleteMemo = async (req, res) => {
 const updateMemo = async (req, res) => {
     try {
         const { id } = req.params;
-        const { internalno, memono, drivername, date, vehicleno,driverphone, driverwhatsappnumber, locationfrom, locationto, commission  } = req.body;
+        const { internalno, gcno, date, vehicleno,driverphone, driverwhatsappno, locationfrom, locationto, commission  } = req.body;
         const result = await Memo.findByIdAndUpdate(id, { ...req.body }, { new: true });
         if (result) {
             return res.status(200).json({ message: "Memo updated successfully", data: result });

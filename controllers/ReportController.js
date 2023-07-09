@@ -32,9 +32,6 @@ const getReport = async (req, res) => {
 
 const createReport = async (req, res) => {
     try {
-        await authMiddleware(req, res); // Assuming this middleware handles the authentication
-        console.log(req.user.userId, "user")
-        req.body.userId=req.user.userId
         const result = await Report.create({ ...req.body });
         return res.status(201).json({ message: "Report created successfully", data: result });
     } catch (err) {

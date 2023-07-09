@@ -1,5 +1,5 @@
 const Memodetails = require("../model/memodetails");
-const authMiddleware = require("../middleware/Authmiddleware");
+//const authMiddleware = require("../middleware/Authmiddleware");
 
 const getMemodetails = async (req, res) => {
     try {
@@ -30,9 +30,6 @@ const getMemodetails = async (req, res) => {
 
 const createMemodetails = async (req, res) => {
     try {
-        await authMiddleware(req, res); // Assuming this middleware handles the authentication
-        console.log(req.user.userId, "user")
-        req.body.userId=req.user.userId
         const result = await Memodetails.create({ ...req.body });
         return res.status(201).json({ message: "Memodetails  created successfully", data: result });
     } catch (err) {

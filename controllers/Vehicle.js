@@ -33,10 +33,6 @@ const getVehicle = async (req, res) => {
 const createVehicle = async (req, res) => {
     try {
         console.log(req.body)
-         // Assuming this middleware handles the authentication
-        // await authMiddleware(req, res)
-        // console.log(req, "user")
-        // req.body.userId=req.user.userId
         const result = await Vehicle.create({ ...req.body });
         return res.status(201).send({ message: "Vehicle created successfully" });
     } catch (err) {

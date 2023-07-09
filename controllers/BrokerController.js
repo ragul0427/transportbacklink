@@ -1,5 +1,5 @@
 const Broker = require("../model/broker");
-const authMiddleware = require("../middleware/Authmiddleware");
+//const authMiddleware = require("../middleware/Authmiddleware");
 
 const getBroker = async (req, res) => {
     try {
@@ -10,7 +10,7 @@ const getBroker = async (req, res) => {
         if (search !== ""){
             const result = await Broker.find({
                 $or: [
-                  { name: regexQuery }
+                  { brokername: regexQuery }
                 ],
             });
             return res.status(200).json({ message: result });
@@ -28,9 +28,6 @@ const getBroker = async (req, res) => {
 
 const createBroker = async (req, res) => {
     try {
-        await authMiddleware(req, res); // Assuming this middleware handles the authentication
-        console.log(req.user.userId, "user")
-        req.body.userId=req.user.userId
         const result = await Broker.create({ ...req.body });
         return res.status(201).json({ message: "Broker created successfully", data: result });
     } catch (err) {
@@ -57,7 +54,7 @@ const deleteBroker = async (req, res) => {
 const updateBroker = async (req, res) => {
     try {
         const { id } = req.params;
-        const { name } = req.body;
+        const  { brokername }  = req.body;
         const result = await Broker.findByIdAndUpdate(id, { ...req.body }, { new: true });
         if (result) {
             return res.status(200).json({ message: "Broker updated successfully", data: result });

@@ -10,7 +10,8 @@ const consigneeRoutes = require('./route/consigneeRoutes')
 const vehicleRoutes=require('./route/vehicleRoutes')
 const brokerRoutes=require('./route/brokerRoutes')
 const reportRoutes=require('./route/reportRoutes')
-
+const locationRoutes=require('./route/locationRoutes') 
+const memodetailsRoutes = require('./route/memodetailsRoutes')
 
 app.use(express.json());
 
@@ -28,7 +29,8 @@ app.use(cors({
 	methods:['GET','POST']
 	
 }));
-
+app.use('/api/memodetails', memodetailsRoutes)
+app.use('/api/location',locationRoutes)
 app.use('/api/report',reportRoutes )
 app.use('/api/broker',brokerRoutes,)
 app.use('/api/consignor',consignorRoutes, )

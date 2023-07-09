@@ -2,7 +2,7 @@ const mongoose = require('mongoose')
 
 const brokerSchema = mongoose.Schema({
 
-	name: {
+	 brokername: {
 		type: String
 	},
 	userId: {
