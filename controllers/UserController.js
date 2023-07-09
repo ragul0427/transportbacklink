@@ -3,8 +3,11 @@ const jwt = require('jsonwebtoken');
 
 const loginUser = async (req, res) => {
     try {
+       
         const { username, password } = req.body;
+        console.log(username)
         const user = await User.findOne({ username });
+       
        
         if (user) {
             if (password === user.password) {

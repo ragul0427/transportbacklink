@@ -1,14 +1,14 @@
 const Vehicle = require("../model/vehicle");
-const authMiddleware = require("../middleware/Authmiddleware");
+// const authMiddleware = require("../middleware/Authmiddleware");
 
 const getVehicle = async (req, res) => {
     try {
-        authMiddleware(req, res)
+        // authMiddleware(req, res)
         const { search } = req.query
         const regexQuery = { $regex: search, $options: "i" };
         
        
-        if (search == ""){
+        if (search !== ""){
             const result = await Vehicle.find({
                 $or: [
                   { drivername: regexQuery },
@@ -19,7 +19,7 @@ const getVehicle = async (req, res) => {
             });
             return res.status(200).json({ message: result });
         } else {
-            const result = await Vehicle.find({userId:req.user.userId}); 
+            const result = await Vehicle.find(); 
             return res.status(200).json({ message: result });
         }
         
@@ -32,10 +32,11 @@ const getVehicle = async (req, res) => {
 
 const createVehicle = async (req, res) => {
     try {
+        console.log(req.body)
          // Assuming this middleware handles the authentication
-        await authMiddleware(req, res)
-        console.log(req.user.userId, "user")
-        req.body.userId=req.user.userId
+        // await authMiddleware(req, res)
+        // console.log(req, "user")
+        // req.body.userId=req.user.userId
         const result = await Vehicle.create({ ...req.body });
         return res.status(201).send({ message: "Vehicle created successfully" });
     } catch (err) {

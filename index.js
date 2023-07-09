@@ -25,8 +25,10 @@ require("dotenv").config()
 app.use(cors({
 	origin: 'http://localhost:3000', 
 	credentials: true, 
+	methods:['GET','POST']
 	
 }));
+
 app.use('/api/report',reportRoutes )
 app.use('/api/broker',brokerRoutes,)
 app.use('/api/consignor',consignorRoutes, )
