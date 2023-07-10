@@ -14,13 +14,13 @@ const memodetailsSchema = mongoose.Schema({
     consignee: {
 		type: String
 	},
-	lotno: {
+	Lotno: {
 		type: String
 	},
-	prnofrom: {
+	prnoform:{
 		type: String
 	},
-	prnoto: {
+	Prnoto: {
 		type: String
 	},
 	quantity: {
@@ -33,7 +33,7 @@ const memodetailsSchema = mongoose.Schema({
 		type: String
 	},
     brokercommission: {
-        type:String
+        type:Number
     },
     memomethod: {
         type:String

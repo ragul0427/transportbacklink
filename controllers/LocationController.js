@@ -15,7 +15,8 @@ const getLocation = async (req, res) => {
             });
             return res.status(200).json({ message: result });
         } else {
-            const result = await Broker.find(); 
+            const result = await Location.find(); 
+           
             return res.status(200).json({ message: result });
         }
         
@@ -38,6 +39,7 @@ const createLocation = async (req, res) => {
 
 const deleteLocation = async (req, res) => {
     try {
+        console.log(req.params)
         const { id } = req.params;
         const result = await Location.findByIdAndDelete(id);
         if (result) {

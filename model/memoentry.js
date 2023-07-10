@@ -23,7 +23,7 @@ const memoSchema = mongoose.Schema({
 		type: Number
 	},
 	locationfrom: {
-		type: Number
+		type: String
 	},
     locationto: {
         type: String

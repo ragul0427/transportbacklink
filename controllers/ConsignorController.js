@@ -6,7 +6,7 @@ const getConsignor = async (req, res) => {
     try {
         // authMiddleware(req, res)
         // console.log(req)
-        const { search } = req.query
+        const { search } = req.querycd 
         const regexQuery = { $regex: search, $options: "i" };
         
         // console.log(req.user.userId,"dekn")

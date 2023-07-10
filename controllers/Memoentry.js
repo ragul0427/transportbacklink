@@ -30,6 +30,7 @@ const getMemo = async (req, res) => {
 
 const createMemo = async (req, res) => {
     try {
+        console.log(req.body,"jhgho")
         const result = await Memo.create({ ...req.body });
         return res.status(201).json({ message: "Memo  created successfully", data: result });
     } catch (err) {
@@ -40,7 +41,7 @@ const createMemo = async (req, res) => {
 
 const deleteMemo = async (req, res) => {
     try {
-        const { id } = req.params;
+        
         const result = await Vehicle.findByIdAndDelete(id);
         if (result) {
             return res.status(200).json({ message: "Memo deleted successfully" });

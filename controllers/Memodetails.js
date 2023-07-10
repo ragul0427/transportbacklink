@@ -30,6 +30,7 @@ const getMemodetails = async (req, res) => {
 
 const createMemodetails = async (req, res) => {
     try {
+        console.log(req.body)
         const result = await Memodetails.create({ ...req.body });
         return res.status(201).json({ message: "Memodetails  created successfully", data: result });
     } catch (err) {
