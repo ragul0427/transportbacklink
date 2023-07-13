@@ -51,7 +51,7 @@ app.get('/', (req, res) => {
 app.use(cookieParser());
 
 
-mongoose.connect(process.env.MONGO_URI, {
+mongoose.connect("mongodb+srv://JaiBalajiRoadways:jYNvRRewrPKe2iTv@cluster0.4brtux9.mongodb.net/transport", {
 	useNewUrlParser: true,
 	useUnifiedTopology: true
 }).then(() => {
