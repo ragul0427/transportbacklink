@@ -4,8 +4,8 @@ const memoSchema = mongoose.Schema({
 	internalno: {
 		type: Number
 	},
-	memono: {
-		type: String
+	gcno: {
+		type: Number
 	},
 	drivername: {
 		type: String
@@ -16,20 +16,14 @@ const memoSchema = mongoose.Schema({
 	vehicleno: {
 		type: String
 	},
+	drivername : {
+		type : String
+	},
 	driverphone: {
 		type: Number
 	},
 	driverwhatsappno: {
 		type: Number
-	},
-	locationfrom: {
-		type: String
-	},
-    locationto: {
-        type: String
-	},
-	commission: {
-		type:String
 	},
 	userId: {
 		type:String

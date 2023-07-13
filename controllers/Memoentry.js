@@ -41,8 +41,8 @@ const createMemo = async (req, res) => {
 
 const deleteMemo = async (req, res) => {
     try {
-        
-        const result = await Vehicle.findByIdAndDelete(id);
+        const { id } = req.params;
+        const result = await Memo.findByIdAndDelete(id);
         if (result) {
             return res.status(200).json({ message: "Memo deleted successfully" });
         } else {
@@ -50,14 +50,14 @@ const deleteMemo = async (req, res) => {
         }
     } catch (err) {
         console.error(err);
-        return res.status(500).json({ error: "Failed to delete memoentry" });
+        return res.status(500).json({ error: "Failed to delete memo" });
     }
 };
 
 const updateMemo = async (req, res) => {
     try {
         const { id } = req.params;
-        const { internalno, gcno, date, vehicleno,driverphone, driverwhatsappno, locationfrom, locationto, commission  } = req.body;
+        const { gcno, date, vehicleno, drivername, driverphone, driverwhatsappno } = req.body;
         const result = await Memo.findByIdAndUpdate(id, { ...req.body }, { new: true });
         if (result) {
             return res.status(200).json({ message: "Memo updated successfully", data: result });

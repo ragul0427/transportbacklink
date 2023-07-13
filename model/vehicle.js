@@ -1,6 +1,7 @@
 const mongoose = require('mongoose')
 
 const vehicleSchema = mongoose.Schema({
+
 	docentry: {
 		type: Number
 	},

@@ -58,7 +58,7 @@ const deleteReport = async (req, res) => {
 const updateReport = async (req, res) => {
     try {
         const { id } = req.params;
-        const { fromdate, todate, vehicleno,locationfrom, locationto, consignor,consignee, brokername, lrno } = req.body;
+        const { fromdate, todate, vehicleno,panno, rcname, locationfrom, locationto, consignor,consignee, brokername, lrno,lramount } = req.body;
         const result = await Report.findByIdAndUpdate(id, { ...req.body }, { new: true });
         if (result) {
             return res.status(200).json({ message: "Report updated successfully", data: result });

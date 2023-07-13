@@ -38,7 +38,7 @@ const memodetailsSchema = mongoose.Schema({
     memomethod: {
         type:String
     },
-    lorryfoeight: {
+    lorryfreight: {
         type:String
     },
     remarks: {
@@ -48,10 +48,10 @@ const memodetailsSchema = mongoose.Schema({
         typr: String
     },
     invoiceno: {
-        type: String
+        type: Number
     },
     valueofgoods: {
-        type: String
+        type: Number
     },
     quality: {
         type: String

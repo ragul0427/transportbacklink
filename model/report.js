@@ -8,8 +8,14 @@ const reportSchema = mongoose.Schema({
     todate: {
        type: String 
     },
-    vehicle : {
+    vehicleno : {
        type: String
+    },
+    panno : {
+       type: String
+    },
+    rcname: {
+       type : String
     },
     locationfrom : {
          type: String
@@ -28,6 +34,9 @@ const reportSchema = mongoose.Schema({
     },
     lrno: {
         type: String
+    },
+    lramount : {
+        type : Number
     },
     userId: {
         type:String
