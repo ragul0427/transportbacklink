@@ -1,21 +1,21 @@
-const jwt = require("jsonwebtoken");
+// const jwt = require("jsonwebtoken");
 
-const authenticateToken = (req, res, next) => {
-  const token = req.headers.cookie?.split("=")[1];
-  console.log(token,"edshgvhoih")
+// const authenticateToken = (req, res, next) => {
+//   const token = req.headers.cookie?.split("=")[1];
+//   console.log(token,"edshgvhoih")
 
-  if (token) {
-     jwt.verify(token, process.env.SECRET_KEY, (err, decoded) => {
-      if (err) {
-        return res.sendStatus(403);
-      }
-      console.log(decoded, "decoded");
-      req.user = decoded;
+//   if (token) {
+//      jwt.verify(token, process.env.SECRET_KEY, (err, decoded) => {
+//       if (err) {
+//         return res.sendStatus(403);
+//       }
+//       console.log(decoded, "decoded");
+//       req.user = decoded;
      
-    });
-  } else {
-    return res.sendStatus(401);
-  }
-};
+//     });
+//   } else {
+//     return res.sendStatus(401);
+//   }
+// };
 
-module.exports = authenticateToken;
+// module.exports = authenticateToken;
