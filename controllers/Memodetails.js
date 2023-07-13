@@ -1,5 +1,5 @@
 const Memodetails = require("../model/memodetails");
-//const authMiddleware = require("../middleware/Authmiddleware");
+
 
 const getMemodetails = async (req, res) => {
     try {

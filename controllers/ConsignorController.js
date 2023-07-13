@@ -1,5 +1,5 @@
 const Consignor = require("../model/Consignor")
-// const authMiddleware = require("../middleware/Authmiddleware");
+
 
 
 const getConsignor = async (req, res) => {

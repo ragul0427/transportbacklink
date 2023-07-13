@@ -1,5 +1,4 @@
 const Report = require("../model/report");
-// const authMiddleware = require("../middleware/Authmiddleware");
 
 const getReport = async (req, res) => {
     try {

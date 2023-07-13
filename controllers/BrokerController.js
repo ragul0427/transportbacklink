@@ -1,5 +1,5 @@
 const Broker = require("../model/broker");
-//const authMiddleware = require("../middleware/Authmiddleware");
+
 
 const getBroker = async (req, res) => {
     try {

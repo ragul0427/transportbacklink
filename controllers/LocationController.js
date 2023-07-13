@@ -1,5 +1,5 @@
 const Location = require("../model/location");
-//const authMiddleware = require("../middleware/Authmiddleware");
+
 
 const getLocation = async (req, res) => {
     try {
