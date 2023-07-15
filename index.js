@@ -23,7 +23,11 @@ require("dotenv").config()
 
 
 
-app.use(cors());
+app.use(cors({
+	credentials: true, 
+	methods:['GET','POST','PUT','DELETE']
+	
+}));
 app.use('/api/memodetails', memodetailsRoutes)
 app.use('/api/memo', memoentryroutes)
 app.use('/api/location',locationRoutes)
@@ -41,7 +45,7 @@ app.use('/api/vehicle',vehicleRoutes, )
 app.use(cookieParser());
 
 
-mongoose.connect(process.env.MONGO_URI, {
+mongoose.connect("mongodb+srv://JaiBalajiRoadways:jYNvRRewrPKe2iTv@cluster0.4brtux9.mongodb.net/transport", {
 	useNewUrlParser: true,
 	useUnifiedTopology: true
 }).then(() => {
