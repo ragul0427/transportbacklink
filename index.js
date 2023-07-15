@@ -3,7 +3,6 @@ const app = express()
 const cors = require("cors")
 const mongoose = require("mongoose")
 const consignorRoutes = require('./route/consignorRoutes')
-const userRoutes = require('./route/userRoute')
 const bodyparser = require('body-parser')
 const cookieParser = require('cookie-parser');
 const consigneeRoutes = require('./route/consigneeRoutes')
@@ -38,7 +37,7 @@ app.use('/api/broker',brokerRoutes,)
 app.use('/api/consignor',consignorRoutes, )
 app.use('/api/consignee',consigneeRoutes, )
 app.use('/api/vehicle',vehicleRoutes, )
-app.use('/api/user', userRoutes)
+
 
 app.get('/', (req, res) => {
 	const token = req.cookies.token;

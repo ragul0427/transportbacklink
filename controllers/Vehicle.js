@@ -1,5 +1,5 @@
 const Vehicle = require("../model/vehicle");
-// const authMiddleware = require("../middleware/Authmiddleware");
+
 
 const getVehicle = async (req, res) => {
     try {
