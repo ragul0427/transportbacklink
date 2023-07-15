@@ -39,11 +39,7 @@ app.use('/api/consignee',consigneeRoutes, )
 app.use('/api/vehicle',vehicleRoutes, )
 
 
-app.get('/', (req, res) => {
-	const token = req.cookies.token;
-	console.log(token);
-	res.send('Hello World!');
-});
+
 
 
 
