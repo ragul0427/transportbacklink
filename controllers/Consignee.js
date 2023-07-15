@@ -5,7 +5,8 @@ const getConsignee = async (req, res) => {
         // authMiddleware(req, res)
         // console.log(req)
         const { search } = req.query
-        const regexQuery = { $regex: search, $options: "i" };
+        // const regexQuery = { $regex: search, $options: "i" };
+		const regexQuery = new RegExp(search, "i");
         
         console.log(search,"dekn")
        

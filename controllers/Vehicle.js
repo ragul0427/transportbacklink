@@ -5,7 +5,8 @@ const getVehicle = async (req, res) => {
     try {
         // authMiddleware(req, res)
         const { search } = req.query
-        const regexQuery = { $regex: search, $options: "i" };
+        // const regexQuery = { $regex: search, $options: "i" };
+        const regexQuery = new RegExp(search, "i");
         
        
         if (search !== ""){

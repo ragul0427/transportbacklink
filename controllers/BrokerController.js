@@ -4,8 +4,8 @@ const Broker = require("../model/broker");
 const getBroker = async (req, res) => {
     try {
         const { search } = req.query
-        const regexQuery = { $regex: search, $options: "i" };
-        
+        // const regexQuery = { $regex: search, $options: "i" };
+        const regexQuery = new RegExp(search, "i");
        
         if (search !== ""){
             const result = await Broker.find({
