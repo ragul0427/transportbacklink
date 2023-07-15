@@ -36,16 +36,8 @@ app.use('/api/broker',brokerRoutes,)
 app.use('/api/consignor',consignorRoutes, )
 app.use('/api/consignee',consigneeRoutes, )
 app.use('/api/vehicle',vehicleRoutes, )
-
-
-
-
-
-
 app.use(cookieParser());
-
-
-mongoose.connect("mongodb+srv://JaiBalajiRoadways:jYNvRRewrPKe2iTv@cluster0.4brtux9.mongodb.net/transport", {
+mongoose.connect(process.env.MONGO_URI, {
 	useNewUrlParser: true,
 	useUnifiedTopology: true
 }).then(() => {
