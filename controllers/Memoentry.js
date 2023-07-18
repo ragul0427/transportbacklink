@@ -12,12 +12,12 @@ const getMemo = async (req, res) => {
                 $or: [
                     { gcno: !isNaN(search) ? Number(search) : null },
                   { vehicleno: !isNaN(search) ? Number(search) : null },
-                  { driverphone: !isNaN(search) ? Number(search) : null },         
+                  { _id: !isNaN(search) ? Number(search) : null },         
                 ],
             });
             return res.status(200).json({ message: result });
         } else {
-            const result = await Memo.find(); 
+            const result = await Memo.find({}); 
             return res.status(200).json({ message: result });
         }
         
