@@ -61,6 +61,9 @@ const memodetailsSchema = mongoose.Schema({
     },
     userId: {
         type:String
+    },
+    memoId: {
+        type:String,
     }
 })
 
