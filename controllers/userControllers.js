@@ -22,13 +22,13 @@ const getUser = async(req, res) => {
     try {
         const { username } = req.body;
         const validUser = await User.findOne({ username });
-        if (validUser) {
+        if (validUser &&req.body.password===validUser.password) {
           const data = validUser._id;
             const token = await jwt.sign({ userId: data }, "abcd1234");
             Cookies.set("token",token)
           res.cookie("token", token).status(200).send(token);
         } else {
-          return res.status(500).send("invalid user");
+          return res.status(500).send("invalid user or password");
         }
       } catch (e) {
         console.log(e);
