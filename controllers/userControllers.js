@@ -1,5 +1,6 @@
 const User = require("../model/user")
-const jwt=require("jsonwebtoken")
+const jwt = require("jsonwebtoken");
+const Cookies=require("js-cookie")
 
 const createUser = async (req, res) => {
     try {
@@ -23,7 +24,8 @@ const getUser = async(req, res) => {
         const validUser = await User.findOne({ username });
         if (validUser) {
           const data = validUser._id;
-          const token = await jwt.sign({ userId: data }, "abcd1234");
+            const token = await jwt.sign({ userId: data }, "abcd1234");
+            Cookies.set("token",token)
           res.cookie("token", token).status(200).send(token);
         } else {
           return res.status(500).send("invalid user");
