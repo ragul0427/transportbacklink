@@ -14,7 +14,7 @@ const memodetailsSchema = mongoose.Schema({
     consignee: {
 		type: String
 	},
-	Lotno: {
+	lotno: {
 		type: String
 	},
 	prnoform:{
@@ -45,7 +45,7 @@ const memodetailsSchema = mongoose.Schema({
         type: String
     },
     accountpaid: {
-        typr: String
+        type: String
     },
     invoiceno: {
         type: Number
