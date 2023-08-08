@@ -1,6 +1,7 @@
 const Memo = require("../model/memoentry");
 
 
+
 const getMemo = async (req, res) => {
     try {
         const { search } = req.query
@@ -14,10 +15,11 @@ const getMemo = async (req, res) => {
                   { vehicleno: !isNaN(search) ? Number(search) : null },
                   { phoneno: !isNaN(search) ? Number(search) : null },         
                 ],
-            });
+            }).populate("memodetails");
             return res.status(200).json({ message: result });
         } else {
-            const result = await Memo.find({}); 
+            const result = await Memo.find().populate("memodetails")
+            console.log(result,"ikhjhgfd")
             return res.status(200).json({ message: result });
         }
         
@@ -30,7 +32,7 @@ const getMemo = async (req, res) => {
 
 const createMemo = async (req, res) => {
     try {
-        console.log(req.body,"jhgho")
+        
         const result = await Memo.create({ ...req.body });
         return res.status(201).json({ message: "Memo  created successfully", data: result });
     } catch (err) {

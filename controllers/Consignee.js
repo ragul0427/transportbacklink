@@ -8,7 +8,7 @@ const getConsignee = async (req, res) => {
         // const regexQuery = { $regex: search, $options: "i" };
 		const regexQuery = new RegExp(search, "i");
         
-        console.log(search,"dekn")
+      
        
         if (search !== ""){
             const result = await Consignee.find({

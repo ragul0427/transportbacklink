@@ -64,7 +64,34 @@ const memodetailsSchema = mongoose.Schema({
     },
     memoId: {
         type:String,
-    }
+    },
+    gcno: {
+		type: Number
+	},
+	drivername: {
+		type: String
+	},
+	date: {
+		type: String
+	},
+	vehicleno: {
+		type: String
+	},
+	drivername : {
+		type : String
+	},
+	driverphone: {
+		type: Number
+	},
+	driverwhatsappno: {
+		type: Number
+	},
+    pan: {
+		type: String
+	},
+	rcname: {
+		type: String
+	},
 })
 
 module.exports = mongoose.model('memodetails', memodetailsSchema)

@@ -28,6 +28,7 @@ const memoSchema = mongoose.Schema({
 	userId: {
 		type:String
 	},
+	
 })
 
 module.exports = mongoose.model('memo', memoSchema)
