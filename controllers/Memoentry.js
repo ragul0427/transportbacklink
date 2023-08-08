@@ -15,10 +15,10 @@ const getMemo = async (req, res) => {
                   { vehicleno: !isNaN(search) ? Number(search) : null },
                   { phoneno: !isNaN(search) ? Number(search) : null },         
                 ],
-            }).populate("memodetails");
+            })
             return res.status(200).json({ message: result });
         } else {
-            const result = await Memo.find().populate("memodetails")
+            const result = await Memo.find()
             console.log(result,"ikhjhgfd")
             return res.status(200).json({ message: result });
         }
