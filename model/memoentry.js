@@ -2,10 +2,10 @@ const mongoose = require('mongoose')
 
 const memoSchema = mongoose.Schema({
 	internalno: {
-		type: Number
+		type: String
 	},
 	gcno: {
-		type: Number
+		type: String
 	},
 	drivername: {
 		type: String
@@ -20,10 +20,10 @@ const memoSchema = mongoose.Schema({
 		type : String
 	},
 	driverphone: {
-		type: Number
+		type: String
 	},
 	driverwhatsappno: {
-		type: Number
+		type: String
 	},
 	userId: {
 		type:String

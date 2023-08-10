@@ -3,7 +3,7 @@ const mongoose = require('mongoose')
 const vehicleSchema = mongoose.Schema({
 
 	docentry: {
-		type: Number
+		type: String
 	},
 	vehicleno: {
 		type: String
@@ -12,10 +12,10 @@ const vehicleSchema = mongoose.Schema({
 		type: String
 	},
 	driverphone: {
-		type: Number
+		type: String
 	},
 	whatsappno: {
-		type: Number
+		type: String
 	},
 	pan: {
 		type: String
@@ -24,7 +24,7 @@ const vehicleSchema = mongoose.Schema({
 		type: String
 	},
 	accno: {
-		type: Number
+		type: String
 	},
     ifsccode: {
         type: String

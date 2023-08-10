@@ -27,13 +27,13 @@ const memodetailsSchema = mongoose.Schema({
 		type: String
 	},
 	lramount: {
-		type: Number
+		type: String
 	},
 	brokername: {
 		type: String
 	},
     brokercommission: {
-        type:Number
+        type:String
     },
     memomethod: {
         type:String
@@ -48,10 +48,10 @@ const memodetailsSchema = mongoose.Schema({
         type: String
     },
     invoiceno: {
-        type: Number
+        type: String
     },
     valueofgoods: {
-        type: Number
+        type: String
     },
     quality: {
         type: String
@@ -66,7 +66,7 @@ const memodetailsSchema = mongoose.Schema({
         type:String,
     },
     gcno: {
-		type: Number
+		type: String
 	},
 	drivername: {
 		type: String
@@ -81,10 +81,10 @@ const memodetailsSchema = mongoose.Schema({
 		type : String
 	},
 	driverphone: {
-		type: Number
+		type: String
 	},
 	driverwhatsappno: {
-		type: Number
+		type: String
 	},
     pan: {
 		type: String
