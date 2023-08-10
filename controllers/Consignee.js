@@ -33,7 +33,7 @@ const getConsignee = async (req, res) => {
   };
 
 const createConsignee = async (req, res) => {
-	console.log(req.body)
+	
 
 	try {
 		const result = await Consignee.create({
@@ -67,7 +67,7 @@ const deleteConsignee = async (req, res) => {
 }
 
 const updateConsignee = async (req, res) => {
-	console.log(req.body)
+	
 	try {
 		const {
 			id

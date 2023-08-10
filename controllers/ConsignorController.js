@@ -58,7 +58,7 @@ const deleteConsignor=async (req, res) => {
 }
 
 const updateConsignor = async (req, res) => {
-    console.log(req.body)
+   
     try {
         const { id } = req.params;
         const {name,address,place,phone,contactPerson,gstno,mail,transport}=req.body

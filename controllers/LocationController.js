@@ -39,7 +39,7 @@ const createLocation = async (req, res) => {
 
 const deleteLocation = async (req, res) => {
     try {
-        console.log(req.params)
+        
         const { id } = req.params;
         const result = await Location.findByIdAndDelete(id);
         if (result) {

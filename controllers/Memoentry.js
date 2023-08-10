@@ -19,13 +19,13 @@ const getMemo = async (req, res) => {
             return res.status(200).json({ message: result });
         } else {
             const result = await Memo.find()
-            console.log(result,"ikhjhgfd")
+           
             return res.status(200).json({ message: result });
         }
         
     
     } catch (err) {
-      console.error(err);
+     
       return res.status(500).json({ error: "Failed to fetch memoentry" });
     }
   };
