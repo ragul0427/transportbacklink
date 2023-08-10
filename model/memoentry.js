@@ -16,9 +16,7 @@ const memoSchema = mongoose.Schema({
 	vehicleno: {
 		type: String
 	},
-	drivername : {
-		type : String
-	},
+	
 	driverphone: {
 		type: String
 	},

@@ -4,14 +4,10 @@ const Consignor = require("../model/Consignor")
 
 const getConsignor = async (req, res) => {
     try {
-        // authMiddleware(req, res)
-        // console.log(req)
         const { search } = req.query
-        const regexQuery = { $regex: search, $options: "i" };
-        
-        // console.log(req.user.userId,"dekn")
-       
-        if (search == ""){
+        // const regexQuery = { $regex: search, $options: "i" };
+		const regexQuery = new RegExp(search, "i");
+        if (search !== ""){
             const result = await Consignor.find({
                 $or: [
                   { name: regexQuery },
@@ -20,6 +16,7 @@ const getConsignor = async (req, res) => {
                  
                 ],
             });
+            
             return res.status(200).json({ message: result });
         } else {
             const result = await Consignor.find(); 
